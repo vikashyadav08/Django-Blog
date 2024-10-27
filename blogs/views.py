@@ -1,7 +1,7 @@
-from django.shortcuts import render,HttpResponse,redirect
-from . models import Blogs,Category,Comment
-from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.shortcuts import render,HttpResponse,redirect
+from .models import Blogs,Category,Comment
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 def posts_by_category(request,category_id):
     # Fetch the posts that belongs to the category with id category_id

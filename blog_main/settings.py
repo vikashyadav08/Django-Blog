@@ -83,15 +83,10 @@ WSGI_APPLICATION = 'blog_main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Use the correct backend here
-        'NAME': env('PostgreSQLE'),                     # Fetches DB_NAME from .env
-        'USER': env('Vikash'),                     # Fetches DB_USER from .env
-        'PASSWORD': env('Admin'),             # Fetches DB_PASSWORD from .env
-        'HOST': env('DB_HOST', default='localhost'),  # Defaults to 'localhost' if DB_HOST not set
-        'PORT': env('DB_PORT', default='5432'),       # Defaults to 5432 if DB_PORT not set
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation
@@ -128,11 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    STATIC_DIR
+    os.path.join(BASE_DIR, 'blogs/static'),
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
